@@ -1,16 +1,20 @@
 @class-prefix-card: ~'adm-card';
 
 .@{class-prefix-card} {
+  --border-radius: var(--adm-card-border-radius, 8px);
+  --padding-x: var(--adm-card-padding-x, 12px);
+  --padding-y: var(--adm-card-padding-y, 12px);
+
   background: var(--adm-color-background);
-  border-radius: 8px;
-  padding: 0 12px;
+  border-radius: var(--border-radius);
+  padding: 0 var(--padding-x);
   &-header {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: 12px 0;
+    padding: var(--padding-y) 0;
     &:not(:last-child) {
       border-bottom: solid 0.5px var(--adm-color-border);
     }
@@ -21,6 +25,6 @@
     }
   }
   &-body {
-    padding: 12px 0;
+    padding: var(--padding-y) 0;
   }
 }

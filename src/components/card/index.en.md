@@ -25,3 +25,11 @@ It can carry text, lists, pictures, paragraphs, etc., which is convenient for us
 | onClick | The click event of the Card | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 | onHeaderClick | The click event of the header area | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 | title | The left area of the header | `ReactNode` | - |
+
+### CSS Variables
+
+| Name | Description | Default | Global |
+| --- | --- | --- | --- |
+| --border-radius | Border radius of the button. | `8px` | `--adm-card-border-radius` |
+| --padding-x | Horizontal padding of the card. | `12px` | `--adm-card-padding-x` |
+| --padding-y | Vertical padding of the card. | `12px` | `--adm-card-padding-y` |

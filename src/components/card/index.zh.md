@@ -25,3 +25,11 @@
 | onClick | 卡片点击事件 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 | onHeaderClick | header 区域点击事件 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 | title | header 左边区域 | `ReactNode` | - |
+
+### CSS 变量
+
+| 属性            | 说明       | 默认值  | 全局变量                   |
+| --------------- | ---------- | ------- | -------------------------- |
+| --border-radius | 圆角大小   | `4px`   | `--adm-card-border-radius` |
+| --padding-x     | 水平内边距 | `solid` | `--adm-card-padding-x`     |
+| --padding-y     | 垂直内边距 | `solid` | `--adm-card-padding-y`     |
