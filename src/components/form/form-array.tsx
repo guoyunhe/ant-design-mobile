@@ -1,71 +1,70 @@
-import React from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
-import type { StoreValue } from 'rc-field-form/es/interface'
-import { List as RCList } from 'rc-field-form'
-import List from '../list'
+import { List as RCList } from "rc-field-form-modern";
+import type { StoreValue } from "rc-field-form-modern/dist/interface";
+import type { FC, ReactElement, ReactNode } from "react";
+import List from "../list";
 
 export interface FormArrayField {
-  index: number
-  key: number
+  index: number;
+  key: number;
 }
 
 export interface FormArrayOperation {
-  add: (defaultValue?: StoreValue, insertIndex?: number) => void
-  remove: (index: number | number[]) => void
-  move: (from: number, to: number) => void
+  add: (defaultValue?: StoreValue, insertIndex?: number) => void;
+  remove: (index: number | number[]) => void;
+  move: (from: number, to: number) => void;
 }
 
 export interface FormArrayProps {
-  name: string | number | (string | number)[]
-  initialValue?: any[]
+  name: string | number | (string | number)[];
+  initialValue?: any[];
   renderHeader?: (
     field: FormArrayField,
     operation: FormArrayOperation
-  ) => ReactNode
-  onAdd?: (operation: FormArrayOperation) => void
-  renderAdd?: () => ReactNode
+  ) => ReactNode;
+  onAdd?: (operation: FormArrayOperation) => void;
+  renderAdd?: () => ReactNode;
   children: (
     fields: FormArrayField[],
     operation: FormArrayOperation
-  ) => ReactElement[]
+  ) => ReactElement[];
 }
 
-export const FormArray: FC<FormArrayProps> = props => {
+export const FormArray: FC<FormArrayProps> = (props) => {
   return (
     <RCList name={props.name} initialValue={props.initialValue}>
       {(rcFields, operation) => {
-        const fields = rcFields.map(field => ({
+        const fields = rcFields.map((field) => ({
           index: field.name,
           key: field.key,
-        }))
+        }));
         const children = props
           .children(fields, operation)
           .map((child, index) => (
             <List
               key={fields[index].key}
-              mode='card'
+              mode="card"
               header={props.renderHeader?.(fields[index], operation)}
             >
               {child}
             </List>
-          ))
+          ));
         if (props.renderAdd) {
           children.push(
-            <List key='add' mode='card'>
+            <List key="add" mode="card">
               <List.Item
-                className='adm-form-list-operation'
+                className="adm-form-list-operation"
                 onClick={() => {
-                  props.onAdd ? props.onAdd(operation) : operation.add()
+                  props.onAdd ? props.onAdd(operation) : operation.add();
                 }}
                 arrow={false}
               >
                 {props.renderAdd()}
               </List.Item>
             </List>
-          )
+          );
         }
-        return <>{children}</>
+        return <>{children}</>;
       }}
     </RCList>
-  )
-}
+  );
+};

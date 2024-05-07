@@ -32,3 +32,6 @@
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+.rive
+pnpm-lock.yaml

@@ -1,34 +1,44 @@
 {
   "compilerOptions": {
-    "outDir": "./lib",
     "rootDirs": ["src", "config"],
-    "target": "ES6",
+    "target": "es2015",
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
-    "declaration": false,
     "esModuleInterop": true,
     "importHelpers": true,
     "downlevelIteration": true,
     "sourceMap": true,
-    "baseUrl": "./",
     "typeRoots": ["./src/typings", "./node_modules/@types"],
-    "lib": ["ES2016", "DOM"],
+    "lib": ["ES2016", "DOM", "esnext", "dom", "dom.iterable"],
     "paths": {
-      "antd-mobile": ["src/index.ts"],
-      "antd-mobile/src/*": ["src/*"],
-      "antd-mobile/es/*": ["src/*"],
-      "demos": ["src/demos/index.ts"],
-      "testing": ["src/tests/testing"]
+      "antd-mobile": ["./src/index.ts"],
+      "antd-mobile/src/*": ["./src/*"],
+      "antd-mobile/es/*": ["./src/*"],
+      "demos": ["./src/demos/index.ts"],
+      "testing": ["./src/tests/testing"]
     },
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "strict": true,
     "noImplicitAny": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "checkJs": false,
+    "module": "esnext",
+    "isolatedModules": true,
+    "types": ["node", "rive/globals"]
   },
   "include": ["src"],
-  "exclude": ["node_modules", "lib", "es", "dist", ".dumi"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "es",
+    "dist",
+    ".dumi",
+    ".rive",
+    "build",
+    "coverage"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",
